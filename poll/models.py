@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+# modelled such that each poll has 3 options only
 class Poll(models.Model):
     question = models.TextField()
     option_one = models.CharField(max_length=30)
