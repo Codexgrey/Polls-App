@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # apps
     'poll',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

@@ -18,14 +18,20 @@ def home(request):
     return render(request, 'poll/home.html', context)
 
 
+# using form from forms.py
 def create(request):
     if request.method == 'POST':
+        # instantiating form
         form = CreatePollForm(request.POST)
+
+        # validate form & save it, then home
         if form.is_valid():
             form.save()
             return redirect('home')
     else:
+        # on GET request 
         form = CreatePollForm()
+
     context = {
         'form' : form
     }

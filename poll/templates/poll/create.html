@@ -1,5 +1,10 @@
 {% extends "poll/base.html" %}
 {% load widget_tweaks %}
+{% comment %}
+    django-widget-tweaks: makes it easy for me to add classes to our widget,
+    when we put it in the html. By default it's just plain html.
+    Gives us access to a func called the render_field
+{% endcomment %}
 
 {% block title %}Create Poll{% endblock %}
 
@@ -12,13 +17,14 @@
             </div>
                 
             <form method="POST">
+                {% comment %} cross-site request forgery {% endcomment %}
                 {% csrf_token %}
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label for="question">Enter Poll Question</label>
-                                {% render_field form.question class="form-control" rows="3" %}
+                                {% render_field form.question class="form-control" rows="3" %} 
                             </div>
                         </div>
                     </div>
