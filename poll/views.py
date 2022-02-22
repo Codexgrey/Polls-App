@@ -11,7 +11,7 @@ from .models import Poll
 
 
 def home(request):
-    # getting all available polls
+    # getting all available polls 
     polls = Poll.objects.all()
     context = {
         'polls' : polls
