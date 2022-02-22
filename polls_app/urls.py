@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# importing views from poll app straight to 
 from poll import views as poll_views
 
 urlpatterns = [

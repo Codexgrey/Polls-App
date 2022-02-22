@@ -11,6 +11,7 @@ from .models import Poll
 
 
 def home(request):
+    # getting all available polls
     polls = Poll.objects.all()
     context = {
         'polls' : polls
@@ -26,6 +27,7 @@ def create(request):
 
         # validate form & save it, then home
         if form.is_valid():
+            # print(form.cleaned_data['question']) #prints data on console
             form.save()
             return redirect('home')
     else:
@@ -36,6 +38,8 @@ def create(request):
         'form' : form
     }
     return render(request, 'poll/create.html', context)
+
+# sqlite3 db.sqlite3 'select * from poll_poll' - to check polls in db.sqlite via command line
 
 
 def vote(request, poll_id):
